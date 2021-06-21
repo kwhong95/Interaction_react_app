@@ -40,3 +40,7 @@ export const Bar = styled.span`
   height:100%;
   background-color: #111;
 `;
+
+export const BarText = styled.p`
+  font-size:30px;
+`;

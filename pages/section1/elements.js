@@ -41,7 +41,7 @@ export const Bar = styled.span`
   ${props => {
       const barWidth = props.barWidth;
       return css`
-        width: ${barWidth} + '%';
+        width: ${barWidth};
       `
   }};
   height: 100%;

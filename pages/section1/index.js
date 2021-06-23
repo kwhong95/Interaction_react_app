@@ -12,7 +12,7 @@ import {
 
 
 const Section1 = () => {
-    const sectionRef = useRef(null);
+    const sectionRef = useRef({});
     const [percent, setPercent] = useState(0 + '%');
     const [barWidth, setBarWidth] = useState(0 + '%');
 
@@ -35,7 +35,7 @@ const Section1 = () => {
 
     useEffect(() => {
         window.addEventListener('scroll', getPercent);
-        getPercent()
+        getPercent();
     })
 
     return (

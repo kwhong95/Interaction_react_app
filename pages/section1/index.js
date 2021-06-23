@@ -1,54 +1,55 @@
-import React, { useEffect } from 'react'
-import styles from '../../styles/section1.module.css'
-import $ from '../../libs/jquery.1.12.4';
+import React, { useEffect, useRef, useState } from 'react'
+import {
+    Wrap,
+    Section,
+    Content,
+    Text,
+    Title,
+    Bar,
+    Progress,
+    Percent,
+} from './elements';
 
 
 const Section1 = () => {
-    $(function () {
-        var text = $('.progress .txt');
-        var progressBar = $('.progress .bar');
+    const sectionRef = useRef(null);
+    const [percent, setPercent] = useState(0 + '%');
+    const [barWidth, setBarWidth] = useState(0 + '%');
 
+    const getPercent = () => {
+        let sectionHeight = sectionRef.current.scrollHeight;
+        let realScrollHeight = sectionHeight - window.innerHeight;
+        let screenHeight = window.scrollY;
+        let scrollPercent = (screenHeight / realScrollHeight) * 100;
+        let textPercent = Math.floor(scrollPercent);
 
-        function getPercent() {
-            var scrollHeight =  $('.sec01').height();
-            var scrollRealHeight = (scrollHeight - $(window).height());
-            var winScrollTop = $(window).scrollTop();
-            var scrollPercent = (winScrollTop / scrollRealHeight) * 100;
-            var textPercent = Math.floor(scrollPercent);
+        console.log(`Section 전체 높이: ${sectionHeight}`);
+        console.log(`Screen 높이: ${screenHeight}`);
+        console.log(`실제 스크롤할 높이: ${realScrollHeight}`);
+        console.log(`스크롤 위치: ${scrollPercent}`);
+        console.log(`게이지 퍼센트: ${textPercent}`);
 
-            console.log(textPercent);
+        setBarWidth(scrollPercent + '%');
+        setPercent(textPercent + '%');
+    }
 
-            render(textPercent, scrollPercent);
-        }
-
-        function render(textPercent, scrollPercent) {
-            text.text(textPercent + '%');
-
-            progressBar.css({
-                width: scrollPercent + '%'
-            });
-        }
-
-         function init() {
-            getPercent();
-        };
-
-        $(window).scroll(function() {
-            getPercent();
-        });
-
-        init();
+    useEffect(() => {
+        window.addEventListener('scroll', getPercent);
+        getPercent()
     })
+
     return (
-        <div className='wrap'>
-          <section className={styles.sec01}>
-            <h2 className={styles.com_tit}>스크롤 백분율 구하기</h2>
-            <p className={styles.com_txt}>전체 페이지의 높이와 스크롤 높이를 계산하여 게이지화 한다.</p>
-            <article className={styles.content}>
-              <div className={styles.progress}>
-                <span className={styles.bar}/>
-                <p className={styles.txt}>0%</p>
-              </div>
+        <Wrap>
+          <Section ref={sectionRef} onScroll={getPercent}>
+            <Title>스크롤 백분율 구하기</Title>
+            <Text>전체 페이지의 높이와 스크롤 높이를 계산하여 게이지화 한다.</Text>
+            <Content>
+              <Progress>
+                <Bar barWidth={barWidth}/>
+                <Percent  >
+                    {percent}
+                </Percent>
+              </Progress>
                 가<br/>
                 나<br/>
                 다<br/>
@@ -63,9 +64,9 @@ const Section1 = () => {
                 타<br/>
                 파<br/>
                 하
-            </article>
-          </section>
-        </div>
+            </Content>
+          </Section>
+        </Wrap>
     )
 }
 

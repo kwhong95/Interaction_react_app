@@ -30,3 +30,12 @@ export const Item = styled.li`
 export const Figure = styled.figure`
   padding:10px;
 `;
+
+export const Footer = styled.div`
+  height:200px;  
+  background-color: #ddd;
+`;
+
+export const Text = styled.p`
+  padding:50px 20px;
+`;

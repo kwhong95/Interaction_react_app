@@ -6,11 +6,9 @@ import {
     Title,
     Wrap,
     Item,
-    Figure,
+    Figure, List,
 } from "./elements";
-
-import Image from 'next/image';
-
+import { ListItem } from "./ListItem";
 import Img1 from './images/1.jpg';
 import Img2 from './images/2.jpg';
 import Img3 from './images/3.jpg';
@@ -26,26 +24,8 @@ const Section2 = () => {
     const [winTop, setWinTop] = useState(0);
     const [onTop, setOnTop] = useState();
 
-    let target = listRef.current.innerHTML;
-    let breakList = 10;
     let listCount = 0;
-
-    const getList = () => {
-        let list;
-
-        listCount ++;
-
-        if(listCount > breakList) {
-            list = null;
-        } else {
-            list = '<Item><Figure><Image src={Img1} alt="img" /></Figure></Item>';
-            list += '<Item><Figure><Image src={Img2} alt="img"/></Figure></Item>';
-            list += '<Item><Figure><Image src={Img3} alt="img"/></Figure></Item>';
-            list += '<Item><Figure><Image src={Img4} alt="img"/></Figure></Item>';
-        }
-
-        return list;
-    };
+    let breakList = 10;
 
     const listCall = () => { // 무한 스크롤을 할지 결정하는 함수
         let sectionHeight = sectionRef.current.scrollHeight;
@@ -55,11 +35,21 @@ const Section2 = () => {
         setWinTop(window.scrollY);
         setOnTop(sectionHeight - screenHeight - footerHeight);
 
-        if(winTop >= onTop) {
-            const data = getList();
+        let list;
+        listCount ++;
 
-            if(data !== null) {
-                console.log(target);
+        if( listCount > breakList) {
+            list = null;
+        }
+
+        if(winTop >= onTop) {
+            if(list !== null) {
+                ListItem.push(
+                    { image: Img1, alt: 'addImg' },
+                    { image: Img2, alt: 'addImg' },
+                    { image: Img3, alt: 'addImg' },
+                    { image: Img4, alt: 'addImg' },
+                )
             } else {
                 return false;
             }
@@ -75,7 +65,7 @@ const Section2 = () => {
       <Wrap>
           <Section onScroll={listCall} ref={sectionRef}>
               <Title>INFINITE SCROLL</Title>
-              <InfiniteSection listRef={listRef} />
+              <InfiniteSection listRef={listRef} ListItem={ListItem} />
               <Footer ref={footerRef}>
                   <Text>Footer</Text>
               </Footer>

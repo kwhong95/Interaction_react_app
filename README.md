@@ -8,3 +8,6 @@
 
 ## [Section 2]() Infinite Scroll Implementation and Principles
 
+<img width="1759" alt="스크린샷 2021-06-24 오전 11 36 01" src="https://user-images.githubusercontent.com/70752848/123193795-5ba16a00-d4e0-11eb-81bc-c115bbc95a9c.png">
+
+<img width="1759" alt="스크린샷 2021-06-24 오전 11 31 57" src="https://user-images.githubusercontent.com/70752848/123193701-36acf700-d4e0-11eb-9677-f30b2ebce7d4.png">

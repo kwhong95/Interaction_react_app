@@ -5,8 +5,6 @@ import {
     Text,
     Title,
     Wrap,
-    Item,
-    Figure, List,
 } from "./elements";
 import { ListItem } from "./ListItem";
 import Img1 from './images/1.jpg';
@@ -44,6 +42,7 @@ const Section2 = () => {
 
         if(winTop >= onTop) {
             if(list !== null) {
+                console.log('Image List Call');
                 ListItem.push(
                     { image: Img1, alt: 'addImg' },
                     { image: Img2, alt: 'addImg' },

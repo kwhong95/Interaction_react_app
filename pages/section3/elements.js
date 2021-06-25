@@ -94,3 +94,47 @@ export const TranslateModel = styled.figure`
 `;
 
 export const Section2 = styled.section``;
+
+export const RotateModel2 = styled.figure`
+  transform: rotate(20deg);
+  transition:transform .5s;
+  
+  ${props =>
+    props.active2 &&
+    css `
+      transform: rotate(0deg);
+    `}
+`;
+
+export const ScaleModel2 = styled.figure`
+  transform: scale(.7);
+  transition:transform .5s;
+
+  ${props =>
+    props.active2 &&
+    css `
+      transform: scale(1);
+    `}
+`;
+
+export const SkewModel2 = styled.figure`
+  transform: skew(30deg);
+  transition:transform .5s;
+
+  ${props =>
+    props.active2 &&
+    css `
+      transform: skew(0deg);
+    `}
+`;
+
+export const TranslateModel2 = styled.figure`
+  transform: translate(100px, -100px);
+  transition:transform .5s;
+
+  ${props =>
+    props.active2 &&
+    css `
+      transform: translate(0px, 0px);
+    `}
+`;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {
     Wrap,
     Section1,
@@ -6,10 +6,13 @@ import {
     Button,
     TransformEx,
     List,
-    Item, Figure, Text,
-} from './elements'
+    Item,
+    Text,
+    RotateModel, ScaleModel, SkewModel, TranslateModel, Section2
+} from './elements';
 import Image from "next/image";
 import Model from './model.png';
+
 
 const Section3 = () => {
     const [active, setActive] = useState(false);
@@ -26,23 +29,44 @@ const Section3 = () => {
         <Wrap>
             <Section1>
                 <Title>TRANSFORM</Title>
-                <Section1>
                     <TransformEx>
                         <List>
                             <Item>
-                                <Example />
+                                <RotateModel active={active}>
+                                    <Image src={Model} />
+                                </RotateModel>
                                 <Text>ROTATE</Text>
                             </Item>
+                            <Item>
+                                <ScaleModel active={active}>
+                                    <Image src={Model} />
+                                </ScaleModel>
+                                <Text>SCALE</Text>
+                            </Item>
+                            <Item>
+                                <SkewModel active={active}>
+                                    <Image src={Model} />
+                                </SkewModel>
+                                <Text>SKEW</Text>
+                            </Item>
+                            <Item>
+                                <TranslateModel active={active}>
+                                    <Image src={Model} />
+                                </TranslateModel>
+                                <Text>TRANSLATE</Text>
+                            </Item>
                         </List>
+                        <Button onClick={onStart}>Start</Button>
+                        <Button onClick={onReset}>Reset</Button>
                     </TransformEx>
-                </Section1>
-                <Button onClick={onStart}>Start</Button>
-                <Button onClick={onReset}>Reset</Button>
             </Section1>
+
+            <Section2>
+                <Title>TRANSFORM & TRANSITION</Title>
+            </Section2>
         </Wrap>
     );
 }
 
 export default Section3;
 
-const Example = () => <Figure><Image src={Model} /></Figure>

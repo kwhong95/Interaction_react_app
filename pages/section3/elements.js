@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrap = styled.div`
   overflow: hidden;
@@ -46,10 +46,51 @@ export const Item = styled.li`
   box-sizing: border-box;
 `;
 
-export const Figure = styled.figure``;
 
 export const Text = styled.strong`
   display: block;
   margin-top: 30px;
   text-align: center;
 `;
+
+export const RotateModel = styled.figure`
+  transform: rotate(20deg);
+  
+  ${props => 
+    props.active &&
+    css `
+      transform: rotate(0deg);
+    `}
+`;
+
+export const ScaleModel = styled.figure`
+  transform: scale(.7);
+
+  ${props =>
+      props.active &&
+      css `
+      transform: scale(1);
+    `}
+`;
+
+export const SkewModel = styled.figure`
+  transform: skew(30deg);
+
+  ${props =>
+      props.active &&
+      css `
+      transform: skew(0deg);
+    `}
+`;
+
+export const TranslateModel = styled.figure`
+  transform: translate(100px, -100px);
+
+  ${props =>
+      props.active &&
+      css `
+      transform: translate(0px, 0px);
+    `}
+`;
+
+export const Section2 = styled.section``;

@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Wrap } from './elements';
 
 function Home () {
   return (
-      <div>
+      <Wrap>
         Home Page
-      </div>
+      </Wrap>
   );
 }
 

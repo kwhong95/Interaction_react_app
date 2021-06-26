@@ -13,7 +13,6 @@ export const Title = styled.h2`
 
 export const Figure = styled.figure`
   animation-name: move_model;
-  
   // 한번 재생 시 걸리는 시간
   animation-duration: 6s;
   // 지연 시간 (몇초 후 시작?)
@@ -32,37 +31,17 @@ export const Figure = styled.figure`
   animation-fill-mode: forwards;
   
   @keyframes move_model {
-    0% {
-      transform: translate(0px, 0px);
+    0%{
+        transform:translate(-200px,0px);
     }
     50% {
-      transform: translate(200px, 0);
+        transform:translate(200px,0px);
     }
-    75% {
-      .bounce {
-        position: relative;
-        animation: bounce 2s infinite linear;
-        @keyframes bounce {
-        0% {
-          top: 0;
-        }
-        50% {
-          top: -5px;
-        }
-        70% {
-          top: -50px;
-        }
-        100% {
-          top: 0;
-        }
-    100% {
-      display: none;
+    100%{
+        transform:translate(600px, 200px);
     }
-  }  
-      }
-    }
-  }
-  
+}
+
   
   ${props =>
     props.active &&

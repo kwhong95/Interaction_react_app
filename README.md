@@ -22,3 +22,8 @@
 <img width="981" alt="스크린샷 2021-06-26 오후 5 52 27" src="https://user-images.githubusercontent.com/70752848/123507916-462a6c80-d6a7-11eb-8130-566812b2b1e7.png">
 
 ## [Section5](https://github.com/kwhong95/Interaction_react_app/tree/master/pages/section5) Animated Acceleration Processing Method
+
+<img width="981" alt="스크린샷 2021-06-26 오후 6 43 57" src="https://user-images.githubusercontent.com/70752848/123509087-79242e80-d6ae-11eb-81de-46c9ec779acf.png">
+
+
+## [Project1](https://github.com/kwhong95/Interaction_react_app/tree/master/pages/project1) Parallux scroll interaction applied to motion graphics
